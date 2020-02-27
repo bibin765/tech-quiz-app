@@ -13,6 +13,7 @@
                     :key="index" 
                     @click.prevent="selectAnswer(index)"
                     :class="[selectedIndex===index ? 'selected':'']"
+                    
                 >
                     {{answer}}
                 </b-list-group-item>
@@ -22,6 +23,7 @@
             variant="primary" 
             href="#"
             @click = "submitAnswer"
+            :disabled = "selectedIndex === null || answered"
             >
             Submit
             </b-button>
@@ -51,6 +53,7 @@ export default {
                 shuffledAnswers : [],
                 isCorrect : '',
                 correctIndex:null,
+                answered: false,
             }
         )
     },
@@ -60,6 +63,7 @@ export default {
         currentQuestion(){
             this.selectedIndex = null
             this.shuffleAnswers()
+            this.answered = false;
         }
     },
 
@@ -80,7 +84,7 @@ export default {
             if(this.selectedIndex === this.correctIndex){
                 isCorrect = true;
             }
-
+            this.answered = true;
             this.increment(isCorrect);
 
         }
@@ -99,6 +103,7 @@ export default {
 
     mounted(){
         this.shuffleAnswers();
+        
         
     }
 }
