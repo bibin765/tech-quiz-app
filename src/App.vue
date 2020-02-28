@@ -7,7 +7,7 @@
 
   <b-container fluid="md" class="bv-example-row">
     <b-row>
-      <b-col >
+      <b-col sm="6" offset="3">
       <QuestionBox 
         v-if ="questions.length"
         :currentQuestion = "questions[index]"

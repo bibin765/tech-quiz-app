@@ -1,4 +1,5 @@
 # tech-quiz-app
+A quiz App Made with VueJs
 
 ## Project setup
 ```
